@@ -8,6 +8,7 @@ import org.jdcoffre.mlc.server.data.DataPersister;
 import org.jdcoffre.mlc.server.resource.Bottles;
 import org.jdcoffre.mlc.server.resource.Cellars;
 import org.jdcoffre.mlc.server.resource.Racks;
+import org.jdcoffre.mlc.server.resource.Webapp;
 
 public class MlcServer extends Application<MlcConfiguration> {
 
@@ -36,5 +37,7 @@ public class MlcServer extends Application<MlcConfiguration> {
         environment.jersey().register(cellarsResource);
         final Racks racksResource = new Racks(dataPersister);
         environment.jersey().register(racksResource);
+
+        environment.jersey().register(new Webapp());
     }
 }
