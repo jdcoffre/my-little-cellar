@@ -1,6 +1,7 @@
 package org.jdcoffre.mlc.server;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
@@ -26,6 +27,8 @@ public class MlcServer extends Application<MlcConfiguration> {
     @Override
     public void initialize(Bootstrap<MlcConfiguration> bootstrap) {
         bootstrap.addBundle(new ViewBundle<MlcConfiguration>());
+        bootstrap.addBundle(new AssetsBundle("/assets/bootstrap-4.0.0-alpha.2/dist", "/bootstrap", null,"bootstrap"));
+        bootstrap.addBundle(new AssetsBundle("/assets/jquery-1.11.3", "/jquery", null,"jquery"));
     }
 
     @Override
