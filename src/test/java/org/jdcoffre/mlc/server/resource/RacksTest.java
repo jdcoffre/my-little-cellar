@@ -7,7 +7,6 @@ import org.jdcoffre.mlc.server.data.DataPersister;
 import org.junit.Test;
 
 import javax.ws.rs.core.Response;
-
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
