@@ -3,7 +3,10 @@ package org.jdcoffre.mlc.server;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.jdcoffre.mlc.server.api.Cellar;
 import org.jdcoffre.mlc.server.resource.Bottles;
+import org.jdcoffre.mlc.server.resource.Cellars;
+import org.jdcoffre.mlc.server.resource.Racks;
 
 public class MlcServer extends Application<MlcConfiguration> {
 
@@ -26,6 +29,10 @@ public class MlcServer extends Application<MlcConfiguration> {
     @Override
     public void run(MlcConfiguration mlcConfiguration, Environment environment) throws Exception {
         final Bottles bottlesResource = new Bottles();
-        environment.jersey().register(bottlesResource   );
+        environment.jersey().register(bottlesResource);
+        final Cellars cellarsResource = new Cellars();
+        environment.jersey().register(cellarsResource);
+        final Racks racksResource = new Racks();
+        environment.jersey().register(racksResource);
     }
 }
