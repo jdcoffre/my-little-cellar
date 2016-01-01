@@ -3,6 +3,7 @@ package org.jdcoffre.mlc.server;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.dropwizard.views.ViewBundle;
 import org.jdcoffre.mlc.server.data.DataPersister;
 import org.jdcoffre.mlc.server.resource.Bottles;
 import org.jdcoffre.mlc.server.resource.Cellars;
@@ -23,7 +24,7 @@ public class MlcServer extends Application<MlcConfiguration> {
 
     @Override
     public void initialize(Bootstrap<MlcConfiguration> bootstrap) {
-        // nothing to do yet
+        bootstrap.addBundle(new ViewBundle<MlcConfiguration>());
     }
 
     @Override
