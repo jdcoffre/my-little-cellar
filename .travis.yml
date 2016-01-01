@@ -1,2 +1,5 @@
 language: java
-mvn clean test
+sudo: false
+
+jdk:
+  - oraclejdk8
