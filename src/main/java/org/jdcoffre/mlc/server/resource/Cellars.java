@@ -12,20 +12,20 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
-@Path("/bottles")
+@Path("/cellars")
 @Produces(MediaType.APPLICATION_JSON)
-public class Bottles {
+public class Cellars {
 
     @GET
     @Timed
-    public Bottle getBottle(@QueryParam("name") NonEmptyStringParam name) {
-        return new Bottle();
+    public Cellar getCellar(@QueryParam("name") NonEmptyStringParam name) {
+        return new Cellar();
     }
 
     @POST
     @Timed
-    public Response postBottle(@QueryParam("name") NonEmptyStringParam name, @Valid Bottle bottle) {
-        return Response.created(UriBuilder.fromResource(Bottles.class).build(name.get()))
+    public Response postCellar(@QueryParam("name") NonEmptyStringParam name, @Valid Cellar cellar) {
+        return Response.created(UriBuilder.fromResource(Cellars.class).build(name.get()))
                 .build();
     }
 
