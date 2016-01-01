@@ -2,7 +2,6 @@ package org.jdcoffre.mlc.server.resource;
 
 
 import io.dropwizard.jersey.params.NonEmptyStringParam;
-import org.jdcoffre.mlc.server.api.Cellar;
 import org.jdcoffre.mlc.server.api.Rack;
 import org.junit.Test;
 

@@ -3,7 +3,6 @@ package org.jdcoffre.mlc.server;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-import org.jdcoffre.mlc.server.api.Cellar;
 import org.jdcoffre.mlc.server.resource.Bottles;
 import org.jdcoffre.mlc.server.resource.Cellars;
 import org.jdcoffre.mlc.server.resource.Racks;

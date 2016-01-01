@@ -1,10 +1,8 @@
 package org.jdcoffre.mlc.server.resource;
 
 import com.codahale.metrics.annotation.Timed;
-import com.google.common.base.Optional;
 import io.dropwizard.jersey.params.NonEmptyStringParam;
 import org.jdcoffre.mlc.server.api.Bottle;
-import org.jdcoffre.mlc.server.api.Cellar;
 
 import javax.validation.Valid;
 import javax.ws.rs.*;
