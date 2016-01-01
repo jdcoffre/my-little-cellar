@@ -29,11 +29,11 @@ public class MlcServer extends Application<MlcConfiguration> {
     @Override
     public void run(MlcConfiguration mlcConfiguration, Environment environment) throws Exception {
         final DataPersister dataPersister = new DataPersister(mlcConfiguration.getDataFolder());
-        final Bottles bottlesResource = new Bottles();
+        final Bottles bottlesResource = new Bottles(dataPersister);
         environment.jersey().register(bottlesResource);
         final Cellars cellarsResource = new Cellars(dataPersister);
         environment.jersey().register(cellarsResource);
-        final Racks racksResource = new Racks();
+        final Racks racksResource = new Racks(dataPersister);
         environment.jersey().register(racksResource);
     }
 }
