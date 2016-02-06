@@ -1,9 +1,7 @@
 package org.jdcoffre.mlc.server.resource;
 
-import com.google.common.collect.Lists;
 import org.jdcoffre.mlc.server.api.Bottle;
 import org.jdcoffre.mlc.server.db.Database;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
