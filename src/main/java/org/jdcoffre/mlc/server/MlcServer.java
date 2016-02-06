@@ -1,19 +1,18 @@
 package org.jdcoffre.mlc.server;
 
 import io.dropwizard.Application;
-import io.dropwizard.assets.AssetsBundle;
+import io.dropwizard.Configuration;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
-import org.jdcoffre.mlc.server.data.DataPersister;
+import org.jdcoffre.mlc.server.db.Database;
+import org.jdcoffre.mlc.server.db.DatabaseMock;
 import org.jdcoffre.mlc.server.resource.Bottles;
-import org.jdcoffre.mlc.server.resource.Cellars;
-import org.jdcoffre.mlc.server.resource.Racks;
-import org.jdcoffre.mlc.server.resource.Webapp;
 
-public class MlcServer extends Application<MlcConfiguration> {
+public class MlcServer extends Application<Configuration> {
 
     public static final String MLC_NAME = "My Little Cellar";
+    private static final Database dataBase = new DatabaseMock();
 
     public static void main(String[] args) throws Exception {
         new MlcServer().run(args);
@@ -25,22 +24,13 @@ public class MlcServer extends Application<MlcConfiguration> {
     }
 
     @Override
-    public void initialize(Bootstrap<MlcConfiguration> bootstrap) {
-        bootstrap.addBundle(new ViewBundle<MlcConfiguration>());
-        bootstrap.addBundle(new AssetsBundle("/assets/bootstrap-4.0.0-alpha.2/dist", "/bootstrap", null,"bootstrap"));
-        bootstrap.addBundle(new AssetsBundle("/assets/jquery-1.11.3", "/jquery", null,"jquery"));
+    public void initialize(Bootstrap<Configuration> bootstrap) {
+        bootstrap.addBundle(new ViewBundle<Configuration>());
     }
 
     @Override
-    public void run(MlcConfiguration mlcConfiguration, Environment environment) throws Exception {
-        final DataPersister dataPersister = new DataPersister(mlcConfiguration.getDataFolder());
-        final Bottles bottlesResource = new Bottles(dataPersister);
+    public void run(Configuration mlcConfiguration, Environment environment) throws Exception {
+        final Bottles bottlesResource = new Bottles(dataBase);
         environment.jersey().register(bottlesResource);
-        final Cellars cellarsResource = new Cellars(dataPersister);
-        environment.jersey().register(cellarsResource);
-        final Racks racksResource = new Racks(dataPersister);
-        environment.jersey().register(racksResource);
-
-        environment.jersey().register(new Webapp());
     }
 }
