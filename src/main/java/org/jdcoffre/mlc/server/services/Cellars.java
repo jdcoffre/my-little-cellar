@@ -14,7 +14,7 @@ import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.util.List;
 
-@Path("/bottles")
+@Path("/cellars")
 @Produces(MediaType.APPLICATION_JSON)
 public class Cellars {
 
