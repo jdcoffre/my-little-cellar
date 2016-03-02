@@ -1,8 +1,6 @@
-package org.jdcoffre.mlc.server.resource;
+package org.jdcoffre.mlc.server.web;
 
 import io.dropwizard.views.View;
-import org.jdcoffre.mlc.server.view.BottleForm;
-import org.jdcoffre.mlc.server.view.CellarForm;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,4 +1,4 @@
-package org.jdcoffre.mlc.server.view;
+package org.jdcoffre.mlc.server.web;
 
 import io.dropwizard.views.View;
 

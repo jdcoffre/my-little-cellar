@@ -1,8 +1,8 @@
-package org.jdcoffre.mlc.server.view;
+package org.jdcoffre.mlc.server.web;
 
 import io.dropwizard.views.View;
-import org.jdcoffre.mlc.server.api.Grape;
-import org.jdcoffre.mlc.server.api.WineType;
+import org.jdcoffre.mlc.server.data.Grape;
+import org.jdcoffre.mlc.server.data.WineType;
 
 import java.util.ArrayList;
 import java.util.List;

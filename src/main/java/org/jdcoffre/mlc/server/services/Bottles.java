@@ -1,7 +1,7 @@
-package org.jdcoffre.mlc.server.resource;
+package org.jdcoffre.mlc.server.services;
 
 import com.codahale.metrics.annotation.Timed;
-import org.jdcoffre.mlc.server.api.Bottle;
+import org.jdcoffre.mlc.server.data.Bottle;
 import org.jdcoffre.mlc.server.db.Database;
 
 import javax.validation.Valid;

@@ -8,9 +8,9 @@ import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.jdcoffre.mlc.server.db.Database;
 import org.jdcoffre.mlc.server.db.DatabaseMock;
-import org.jdcoffre.mlc.server.resource.Bottles;
-import org.jdcoffre.mlc.server.resource.Cellars;
-import org.jdcoffre.mlc.server.resource.WebApp;
+import org.jdcoffre.mlc.server.services.Bottles;
+import org.jdcoffre.mlc.server.services.Cellars;
+import org.jdcoffre.mlc.server.web.WebApp;
 
 public class MlcServer extends Application<Configuration> {
 

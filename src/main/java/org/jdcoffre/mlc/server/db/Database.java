@@ -1,8 +1,8 @@
 package org.jdcoffre.mlc.server.db;
 
 
-import org.jdcoffre.mlc.server.api.Bottle;
-import org.jdcoffre.mlc.server.api.Cellar;
+import org.jdcoffre.mlc.server.data.Bottle;
+import org.jdcoffre.mlc.server.data.Cellar;
 
 import java.util.List;
 

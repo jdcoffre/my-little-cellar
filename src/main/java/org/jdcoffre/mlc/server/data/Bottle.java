@@ -1,4 +1,4 @@
-package org.jdcoffre.mlc.server.api;
+package org.jdcoffre.mlc.server.data;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

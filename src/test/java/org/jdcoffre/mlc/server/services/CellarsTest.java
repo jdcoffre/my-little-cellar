@@ -1,6 +1,6 @@
-package org.jdcoffre.mlc.server.resource;
+package org.jdcoffre.mlc.server.services;
 
-import org.jdcoffre.mlc.server.api.Cellar;
+import org.jdcoffre.mlc.server.data.Cellar;
 import org.jdcoffre.mlc.server.db.Database;
 import org.junit.Before;
 import org.junit.Test;
