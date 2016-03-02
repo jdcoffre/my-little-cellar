@@ -9,11 +9,12 @@ import io.dropwizard.views.ViewBundle;
 import org.jdcoffre.mlc.server.db.Database;
 import org.jdcoffre.mlc.server.db.DatabaseMock;
 import org.jdcoffre.mlc.server.resource.Bottles;
+import org.jdcoffre.mlc.server.resource.Cellars;
 import org.jdcoffre.mlc.server.resource.WebApp;
 
 public class MlcServer extends Application<Configuration> {
 
-    public static final String MLC_NAME = "My Little Cellar";
+    public static final String MLC_NAME = "My Little CellarForm";
     private static final Database dataBase = new DatabaseMock();
 
     public static void main(String[] args) throws Exception {
@@ -35,6 +36,8 @@ public class MlcServer extends Application<Configuration> {
     public void run(Configuration mlcConfiguration, Environment environment) throws Exception {
         final Bottles bottlesResource = new Bottles(dataBase);
         environment.jersey().register(bottlesResource);
+        final Cellars cellarsResource = new Cellars(dataBase);
+        environment.jersey().register(cellarsResource);
         environment.jersey().register(new WebApp());
     }
 }

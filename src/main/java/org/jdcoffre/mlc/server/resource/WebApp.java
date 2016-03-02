@@ -2,7 +2,7 @@ package org.jdcoffre.mlc.server.resource;
 
 import io.dropwizard.views.View;
 import org.jdcoffre.mlc.server.view.BottleForm;
-import org.jdcoffre.mlc.server.view.Cellar;
+import org.jdcoffre.mlc.server.view.CellarForm;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,7 +20,7 @@ public class WebApp {
     @GET
     @Path("/cellar")
     public View getCellar(){
-        return new Cellar();
+        return new CellarForm();
     }
 
 }
