@@ -1,15 +1,13 @@
 package org.jdcoffre.mlc.server.services;
 
 import com.codahale.metrics.annotation.Timed;
+import org.jdcoffre.mlc.server.data.Bottle;
 import org.jdcoffre.mlc.server.data.Cellar;
 import org.jdcoffre.mlc.server.db.Database;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
@@ -40,7 +38,28 @@ public class Cellars {
             return Response.status(Response.Status.CONFLICT).build();
         }
 
-        db.addCellar(cellar);
+        db.setCellar(cellar);
+        return Response.created(UriBuilder.fromResource(Cellars.class).build()).build();
+
+    }
+
+    @POST
+    @Timed
+    @Path("/{name}/{high}/{width}")
+    public Response setBottle(@NotNull @PathParam("name") String name, @NotNull @PathParam("high") Integer high, @NotNull @PathParam("width") Integer width, @NotNull @Valid Bottle bottle) throws IOException{
+        final Cellar cellar = db.getCellar(name);
+        if(cellar == null ||
+                !db.exist(bottle)){
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+
+        if(cellar.getHigh() < high ||
+                cellar.getWidth() < width){
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
+
+        cellar.getShelve(high).setBottle(width, bottle);
+        db.setCellar(cellar);
         return Response.created(UriBuilder.fromResource(Cellars.class).build()).build();
 
     }

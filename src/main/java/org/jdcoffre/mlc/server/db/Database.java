@@ -9,7 +9,7 @@ import java.util.List;
 public interface Database {
 
     // Cellars
-    void addCellar(Cellar cellar);
+    void setCellar(Cellar cellar);
 
     Cellar getCellar(String name);
 
@@ -18,9 +18,7 @@ public interface Database {
     boolean exist(Cellar cellar);
 
     // Bottles
-    void addBottle(Bottle bottle);
-
-    Bottle getBottle(String bottleId);
+    void setBottle(Bottle bottle);
 
     List<Bottle> getBottles();
 

@@ -39,7 +39,7 @@ public class Bottles {
             return Response.status(Response.Status.CONFLICT).build();
         }
 
-        db.addBottle(bottle);
+        db.setBottle(bottle);
         return Response.created(UriBuilder.fromResource(Bottles.class).build()).build();
     }
 

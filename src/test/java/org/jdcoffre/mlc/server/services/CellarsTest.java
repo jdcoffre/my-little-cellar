@@ -1,5 +1,6 @@
 package org.jdcoffre.mlc.server.services;
 
+import org.jdcoffre.mlc.server.data.Bottle;
 import org.jdcoffre.mlc.server.data.Cellar;
 import org.jdcoffre.mlc.server.db.Database;
 import org.junit.Before;
@@ -31,7 +32,7 @@ public class CellarsTest {
 
         Response response = cellarsResource.postCellar(cellar);
         assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus());
-        verify(db).addCellar(cellar);
+        verify(db).setCellar(cellar);
     }
 
     @Test
@@ -50,6 +51,19 @@ public class CellarsTest {
         assertNotNull(cellars);
         assertEquals(1, cellars.size());
         verify(db).getCellars();
+    }
+
+    @Test
+    public void setBottle() throws IOException {
+        Bottle bottle = new Bottle();
+        Cellar cellar = new Cellar(1,1);
+        when(db.getCellar(anyString())).thenReturn(cellar);
+        when(db.exist(bottle)).thenReturn(true);
+
+        Response response = cellarsResource.setBottle("cellar", 0, 0 , bottle);
+        assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus());
+        verify(db).setCellar(cellar);
+        assertEquals(bottle, cellar.getShelve(0).getBottle(0));
     }
 
 }

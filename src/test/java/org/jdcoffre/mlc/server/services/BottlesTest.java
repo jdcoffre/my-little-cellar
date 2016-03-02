@@ -31,7 +31,7 @@ public class BottlesTest {
 
         Response response = bottlesResource.postBottle(bottle);
         assertEquals(Response.Status.CREATED.getStatusCode(), response.getStatus());
-        verify(db).addBottle(bottle);
+        verify(db).setBottle(bottle);
     }
 
     @Test

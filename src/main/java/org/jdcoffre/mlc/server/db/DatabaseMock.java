@@ -15,7 +15,7 @@ public class DatabaseMock implements Database {
     final Map<String,Bottle> bottleMap = new HashMap<>();
 
     @Override
-    public void addCellar(Cellar cellar) {
+    public void setCellar(Cellar cellar) {
         cellarMap.put(cellar.getName(), cellar);
     }
 
@@ -35,17 +35,12 @@ public class DatabaseMock implements Database {
     }
 
     @Override
-    public void addBottle(Bottle bottle) {
+    public void setBottle(Bottle bottle) {
         bottleMap.put(getID(bottle),bottle);
     }
 
     private String getID(Bottle bottle) {
         return bottle.getName();
-    }
-
-    @Override
-    public Bottle getBottle(String bottleId) {
-        return bottleMap.get(bottleId);
     }
 
     @Override
