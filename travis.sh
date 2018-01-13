@@ -1,1 +1,1 @@
-mvn clean test -U
+mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test -U
