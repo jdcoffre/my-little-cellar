@@ -3,7 +3,7 @@ package org.jdcoffre.mlc.lib;
 import org.jdcoffre.mlc.lib.data.Cellar;
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertThat;
 
 public class MyLittleCellarTest {
