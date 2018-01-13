@@ -17,25 +17,27 @@ public class CellarPane extends GridPane implements EventHandler<ActionEvent> {
 
         this.controller = controller;
 
-        setAlignment(Pos.CENTER);
-        setHgap(10);
-        setVgap(10);
-        setPadding(new Insets(25, 25, 25, 25));
+        setPadding(new Insets(10, 10, 10, 10));
+        add(new ErrorMessageArea(), 0, 0);
 
-        add(new ErrorMessageArea(), 0,0, 2, 1);
-
-        add(new CellarLabel(), 0,1);
-        add(new CellarField(), 1, 1);
-        add(new AddCellarButton(this), 2, 1);
+        GridPane fieldsArea  = new GridPane();
+        fieldsArea.setHgap(10);
+        fieldsArea.setVgap(10);
+        fieldsArea.setPadding(new Insets(10, 10, 10, 10));
+        fieldsArea.add(new CellarLabel(), 0,0);
+        fieldsArea.add(new CellarField(), 1, 0);
+        fieldsArea. add(new AddCellarButton(this), 2, 0);
+        add(fieldsArea, 0, 1);
     }
 
     @Override
     public void handle(ActionEvent event) {
+        ErrorMessageArea errorMessage = (ErrorMessageArea) lookup("#" + ErrorMessageArea.ID);
+        errorMessage.setText("");
         try {
             CellarField cellarField = (CellarField) lookup("#" + CellarField.ID);
             controller.addCellar(cellarField.getText());
         } catch (MLCExecption mlcExecption) {
-            ErrorMessageArea errorMessage = (ErrorMessageArea) lookup("#" + ErrorMessageArea.ID);
             errorMessage.setText(mlcExecption.getMessage());
         }
     }
