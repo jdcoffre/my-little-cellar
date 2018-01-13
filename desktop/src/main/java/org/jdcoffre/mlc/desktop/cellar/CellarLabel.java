@@ -6,7 +6,7 @@ public class CellarLabel extends Label {
 
     public static final String ID = "cellar-label";
 
-    public CellarLabel (){
+    CellarLabel (){
         super("Cellar :");
         setId(ID);
     }

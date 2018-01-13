@@ -1,6 +1,7 @@
 package org.jdcoffre.mlc.desktop.cellar;
 
 import javafx.scene.control.Button;
+import org.jdcoffre.mlc.desktop.cellar.CellarPane;
 
 public class AddCellarButton extends Button {
 
