@@ -50,6 +50,7 @@
 
     <modules>
         <module>lib</module>
+        <module>desktop</module>
     </modules>
 
     <dependencyManagement>
